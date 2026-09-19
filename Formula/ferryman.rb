@@ -18,7 +18,7 @@ class Ferryman < Formula
   homepage "https://github.com/rubysquare/the-ferryman-project"
   url "https://github.com/rubysquare/the-ferryman-project/archive/refs/tags/v0.2.0.tar.gz"
   # Replace with actual SHA256 checksum when creating a GitHub release:
-  sha256 "0e4a3a93af5256b71aeacde1736edebe519908b41994cb9ecd275fbaeca9f2ec"
+  sha256 "225d10acc97247bdbdcc7fd18cd9561506233687e6c418a4575b898187bdc3cc"
   license "AGPL-3.0-or-later"
   head "https://github.com/rubysquare/the-ferryman-project.git", branch: "main"
 
