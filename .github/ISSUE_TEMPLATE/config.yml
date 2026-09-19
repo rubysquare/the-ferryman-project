@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ferryman Philosophy & Alignment Guide
+    url: https://github.com/the-ferryman-project/ferryman/blob/main/docs/modern_siddhartha_guide.md
+    about: Read the Modern Siddhartha guide to consciousness and self-mastery.
+  - name: Formal Architectural Proofs
+    url: https://github.com/the-ferryman-project/ferryman/blob/main/docs/architectural_proofs.md
+    about: Read the mathematical specifications and proofs of the alignment guardrails.
+  - name: Anti-Feature Charter & Contributing
+    url: https://github.com/the-ferryman-project/ferryman/blob/main/CONTRIBUTING.md
+    about: Learn what features will never be accepted into this codebase.

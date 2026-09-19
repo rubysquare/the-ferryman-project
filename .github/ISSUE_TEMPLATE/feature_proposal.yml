@@ -1,0 +1,49 @@
+name: Feature Proposal
+description: Propose a new crossing, connector, or enhancement for The Ferryman Project
+title: "[Proposal]: "
+labels: ["enhancement", "needs-guardrail-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### The Ferryman Alignment Guardrails
+        Before proposing any feature, review [AGENTS.md](https://github.com/the-ferryman-project/ferryman/blob/main/AGENTS.md) and [CONTRIBUTING.md](https://github.com/the-ferryman-project/ferryman/blob/main/CONTRIBUTING.md).
+        
+        The Ferryman is built to protect human sovereignty and presence. Any feature that introduces gamification, streaks, engagement loops, telemetry, or monetization will be rejected by design.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Feature Summary
+      description: What problem are you trying to solve, and what is your proposed solution?
+    validations:
+      required: true
+  - type: textarea
+    id: physical-presence
+    attributes:
+      label: Screen Time & Somatic Impact
+      description: How does this feature help the user close the screen faster and return to the physical world?
+    validations:
+      required: true
+  - type: checkboxes
+    id: guardrails
+    attributes:
+      label: Guardrail Defense Checklist (Mandatory)
+      description: Please verify each item. If your proposal fails any item, it cannot be accepted.
+      options:
+        - label: This feature introduces ZERO streaks, badges, points, XP, or gamification mechanics.
+          required: true
+        - label: This feature measures success by time spent AWAY from the screen, not retention or session duration.
+          required: true
+        - label: This feature enforces somatic and embodied primacy before any cognitive/intellectual advice.
+          required: true
+        - label: This feature introduces ZERO telemetry, tracking pixels, analytics, or cloud data harvesting.
+          required: true
+        - label: This feature adds ZERO external runtime dependencies to the core package (pure Python 3 stdlib).
+          required: true
+        - label: This feature will never gatekeep functionality behind paywalls, subscriptions, or proprietary licenses.
+          required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Considered Alternatives
+      description: What alternative approaches or analog solutions did you consider?

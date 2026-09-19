@@ -1,39 +1,69 @@
 # Connectors
 
-Ways to reach the Ferryman without opening a terminal. All of them run `ferryman.py --voice`, which speaks each line with the offline system voice (`say` on macOS). Nothing is installed, nothing leaves the machine.
+Ways to reach the Ferryman without opening a terminal or looking at a screen.
+All connectors execute `ferryman.py --voice`, which speaks each line with the system's offline voice (`say` on macOS, `spd-say` or `espeak-ng` on Linux).
 
-When a crossing is spoken with no keyboard attached, it does not ask you to type. It asks the question, leaves a silence, and closes. The answer stays with you; nothing is logged.
+When a crossing is spoken with no keyboard attached (headless), it does not prompt you to type. It asks the question, leaves a silence for internal reflection, and closes cleanly. The answer stays with you; nothing is logged.
 
-## launchd (scheduled Dawn and Dusk)
+---
+
+## 1. launchd (macOS Scheduling)
+
+Schedules the Dawn Anchor and Dusk Release as native macOS LaunchAgents.
 
 ```bash
-python3 connectors/launchd/schedule.py install                        # dawn 07:00, dusk 21:30
+# Install with defaults (dawn 07:00, dusk 21:30)
+python3 connectors/launchd/schedule.py install
+
+# Custom times
 python3 connectors/launchd/schedule.py install --dawn 06:30 --dusk 22:00
+
+# Check status
+python3 connectors/launchd/schedule.py status
+
+# Uninstall
 python3 connectors/launchd/schedule.py uninstall
 ```
 
-This writes two LaunchAgents (`org.ferryman.dawn`, `org.ferryman.dusk`) into `~/Library/LaunchAgents`.
+If the Mac was asleep at the hour, launchd fires the job on wake. A crossing more than 90 minutes late stays silent rather than speaking into an unintended setting.
 
-If the Mac is asleep at the hour, launchd fires the job on wake. A crossing more than 90 minutes late stays silent rather than speaking into whatever room you have carried the laptop to.
+---
 
-There is no scheduled Midday Pause. It is an SOS, not an appointment.
+## 2. systemd (Linux User Timers)
 
-## Siri / Apple Shortcuts (Midday Pause by voice)
-
-1. Shortcuts → new shortcut → add the **Run Shell Script** action.
-2. Script (use the absolute path to your checkout):
-
-   ```bash
-   /usr/bin/python3 /path/to/the-ferryman-project/ferryman.py pause --voice
-   ```
-
-3. Name the shortcut `Knot`. "Hey Siri, knot" now runs the 30-second grounding aloud.
-
-The same recipe works for `dawn` and `dusk`.
-
-## Try it
+Schedules crossings via user-level systemd timers (`~/.config/systemd/user/`).
 
 ```bash
-python3 ferryman.py dusk --voice              # spoken, typed answer
-python3 ferryman.py dusk --voice </dev/null   # spoken, no keyboard: the scheduled experience
+python3 connectors/systemd/schedule.py install
+python3 connectors/systemd/schedule.py install --dawn 06:30 --dusk 22:00
+python3 connectors/systemd/schedule.py status
+python3 connectors/systemd/schedule.py uninstall
+```
+
+---
+
+## 3. crontab (Universal POSIX Scheduling)
+
+Schedules crossings using standard Unix `crontab`.
+
+```bash
+python3 connectors/cron/schedule.py install
+python3 connectors/cron/schedule.py install --dawn 06:30 --dusk 22:00
+python3 connectors/cron/schedule.py status
+python3 connectors/cron/schedule.py uninstall
+```
+
+---
+
+## 4. Siri / Apple Shortcuts (On-Demand Voice Lifeline)
+
+Enables invoking the 30-second Midday Pause via voice ("Hey Siri, Knot").
+See [`connectors/shortcuts/README.md`](./shortcuts/README.md) for full setup instructions.
+
+```bash
+# Test the spoken output manually
+python3 ferryman.py pause --voice
+
+# Test the scheduled headless experience (no keyboard)
+python3 ferryman.py pause --voice </dev/null
 ```

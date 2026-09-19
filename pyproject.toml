@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ferryman"
+version = "0.2.0"
+description = "An open-source, anti-engagement lifeline for grounded consciousness."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "AGPL-3.0-or-later"}
+authors = [
+    {name = "The Ferryman Project"}
+]
+keywords = [
+    "mindfulness",
+    "somatic",
+    "anti-engagement",
+    "digital-wellbeing",
+    "cli",
+    "offline-first",
+    "grounding"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Operating System :: OS Independent",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Utilities",
+    "Topic :: Office/Business :: News/Diary",
+]
+dependencies = []
+
+[project.scripts]
+ferryman = "ferryman.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/the-ferryman-project/ferryman"
+Documentation = "https://github.com/the-ferryman-project/ferryman#readme"
+"Bug Tracker" = "https://github.com/the-ferryman-project/ferryman/issues"
+"Source Code" = "https://github.com/the-ferryman-project/ferryman"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ferryman*"]
+exclude = ["tests*", "connectors*"]

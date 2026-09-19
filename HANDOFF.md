@@ -25,17 +25,23 @@
 Incoming agents can assist with any of the following tasks while strictly adhering to [`AGENTS.md`](./AGENTS.md):
 
 ### Task A: Voice & Audio Interfaces (Zero-Screen Priority)
-- **Done:** spoken output via the system voice, zero dependencies.
+- **Done:** spoken output via native OS engines: macOS `say`, Linux `spd-say` & `espeak-ng`/`espeak`, and Windows PowerShell `System.Speech` (zero dependencies across all platforms).
+- **Done:** extensive ANSI escape cleaning and markdown parsing for synthesized speech.
 - **Open:** spoken *input*. Offline speech-to-text (`whisper.cpp` / `faster-whisper`) and a warmer voice (`piper-tts`) would break the "dependency-free" rule in `CLAUDE.md`, so they must be strictly optional add-ons, never required. Decide first whether a spoken answer needs capturing at all; the headless crossings work without it.
-- **Open:** Linux voice fallback (`espeak-ng` / `spd-say`).
 
 ### Task B: Low-Friction Connectors
-- **Done:** Siri / Apple Shortcuts recipe.
+- **Done:** Siri / Apple Shortcuts recipes (`connectors/shortcuts/`).
 - **Open (needs the founder's decision):** Telegram / Signal bot. It adds a network dependency and lives on the phone; weigh it against Guardrail 2 before building.
 
 ### Task C: Daily Scheduling Automations
-- **Done:** macOS `launchd`.
-- **Open:** Linux `systemd` user timer.
+- **Done:** macOS `launchd` (`connectors/launchd/schedule.py`).
+- **Done:** Linux `systemd` user timer (`connectors/systemd/schedule.py`).
+- **Done:** Universal POSIX `crontab` (`connectors/cron/schedule.py`).
+- **Done:** Comprehensive unit test suite covering all connectors (`tests/test_launchd.py`, `tests/test_systemd.py`, `tests/test_cron.py`, `tests/test_shortcuts.py`).
+
+### Verification & Proofs
+- **Done:** Formal architectural proofs written in [`docs/architectural_proofs.md`](./docs/architectural_proofs.md) proving bounded execution, somatic primacy, zero network egress, temporal decidability, and non-blocking headless liveness.
+- **Done:** 97 unit tests verifying type safety, boundary values, circuit breaker false-positive & false-negative avoidance, atomic & concurrent storage with symlink preservation, cross-platform voice engines, and connector generation.
 
 ### Housekeeping
 - **Done (2026-09-19):** AGPLv3 `LICENSE` added; local git repository initialised (no remote).
