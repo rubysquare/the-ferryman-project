@@ -32,9 +32,13 @@ Any proposal, PR, or code modification that violates these five tenets is consid
 - **The Body Precedes the Intellect:** Never provide cognitive/intellectual advice while the user is physically dysregulated.
 - **Mandatory Somatic Anchors:** Always prompt the user to check their breath, jaw, shoulders, and feet before engaging in reflection.
 
-### Guardrail 4: Absolute Privacy & Zero Data Harvesting
+### Guardrail 4: Absolute Privacy, Zero Data Harvesting & Anonymity
 - **Local-First by Default:** User reflections, somatic logs, and emotional check-ins belong exclusively to the human.
 - **No Centralized Telemetry:** Never add tracking pixels, behavioral analytics, third-party error trackers, or cloud analytics.
+- **Zero Personal Data Leakage (The Anonymity Invariant):**
+  - **Never** commit, publish, or leak personal identifiers, real names, personal emails, private keys, or local developer environment paths (e.g., `/Users/<username>/`, `C:\Users\<username>\`, `/home/<username>/`).
+  - All public git commits, documentation, code examples, test fixtures, and scripts must strictly use generic relative paths, standard placeholders (`/path/to/...`), and privacy-protected GitHub noreply emails (`<username>@users.noreply.github.com`).
+  - Every AI agent working on this repository must verify that no personal information is introduced before proposing or writing any code.
 
 ### Guardrail 5: The Ferryman Demeanor
 - **Tone:** Quiet, unhurried, grounded, humble, and sparse.

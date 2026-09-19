@@ -22,6 +22,7 @@ Commercial "wellness" software frequently turns mindfulness into another addicti
 | **Centralized Telemetry & Analytics** | No Google Analytics, PostHog, Mixpanel, Sentry beacons, or tracking pixels. Zero telemetry. Logs remain strictly on the user's local machine (`~/.ferryman_log.json`, mode 0600). |
 | **Monetization Hooks & Paywalls** | No "pro" versions, no subscriptions, no locked features. The software is AGPLv3 and runs locally for $0.00. |
 | **Runtime External Dependencies** | The core engine and CLI must remain 100% zero-dependency Python standard library. No `requests`, no heavy frameworks, no bloated package trees. |
+| **Personal Data, Real Names & Local Paths** | All contributions must preserve 100% anonymity. Never commit real names, personal emails, or local environment paths (e.g., `/Users/<username>/`). Use privacy-preserving noreply emails and generic relative paths. |
 
 If a proposal or pull request introduces any of the above, it will be politely and immediately closed.
 
@@ -29,7 +30,7 @@ If a proposal or pull request introduces any of the above, it will be politely a
 
 ## 2. The Rejection-by-Design Checklist
 
-Every issue proposal and pull request is systematically evaluated against these five non-negotiable questions:
+Every issue proposal and pull request is systematically evaluated against these non-negotiable questions:
 
 1. [ ] **Does this pull the human toward a screen or push them back to physical reality?**  
    *If it increases time spent looking at glass, it is a regression.*
@@ -41,6 +42,8 @@ Every issue proposal and pull request is systematically evaluated against these 
    *Core functionality must rely solely on the Python standard library.*
 5. [ ] **Does the body precede the intellect?**  
    *Somatic grounding (breath, jaw, shoulders, feet) must never be bypassed for intellectual analysis.*
+6. [ ] **Is the contribution 100% anonymous and free of personal identifiers, private emails, and local environment paths?**  
+   *All examples must use generic paths (`/path/to/...`) and commits must use privacy-protected noreply addresses.*
 
 ---
 

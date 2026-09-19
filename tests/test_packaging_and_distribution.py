@@ -233,6 +233,33 @@ class TestPackagingAndDistribution(unittest.TestCase):
         cfg_content = config.read_text(encoding="utf-8")
         self.assertIn("blank_issues_enabled: false", cfg_content)
 
+    def test_privacy_and_anonymity_hygiene(self) -> None:
+        """Asserts that no hardcoded developer home paths or personal emails exist in tracked files."""
+        import re
+
+        prohibited_patterns = [
+            (re.compile(r"/Users/[a-zA-Z0-9_-]+"), "Hardcoded macOS /Users/ home path detected"),
+            (re.compile(r"\b[a-zA-Z0-9_.+-]+@(?!users\.noreply\.github\.com|anthropic\.com)[a-zA-Z0-9-]+\.[a-zA-Z]{2,}\b"), "Personal email address detected"),
+        ]
+
+        for root, dirs, files in os.walk(REPO_ROOT):
+            dirs[:] = [d for d in dirs if not d.startswith(".") and d not in ("build", "dist", "__pycache__", "egg-info")]
+            for f in files:
+                if f.startswith(".") or f.endswith((".pyc", ".pyo", ".lock", ".png", ".jpg")):
+                    continue
+                file_path = Path(root) / f
+                try:
+                    text = file_path.read_text(encoding="utf-8")
+                except UnicodeDecodeError:
+                    continue
+
+                for pattern, msg in prohibited_patterns:
+                    match = pattern.search(text)
+                    self.assertIsNone(
+                        match,
+                        f"Privacy violation in {file_path.relative_to(REPO_ROOT)}: {msg} (found '{match.group(0) if match else ''}')"
+                    )
+
 
 if __name__ == "__main__":
     unittest.main()
