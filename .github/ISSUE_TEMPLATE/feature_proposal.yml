@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         ### The Ferryman Alignment Guardrails
-        Before proposing any feature, review [AGENTS.md](https://github.com/the-ferryman-project/ferryman/blob/main/AGENTS.md) and [CONTRIBUTING.md](https://github.com/the-ferryman-project/ferryman/blob/main/CONTRIBUTING.md).
+        Before proposing any feature, review [AGENTS.md](https://github.com/rubysquare/the-ferryman-project/blob/main/AGENTS.md) and [CONTRIBUTING.md](https://github.com/rubysquare/the-ferryman-project/blob/main/CONTRIBUTING.md).
         
         The Ferryman is built to protect human sovereignty and presence. Any feature that introduces gamification, streaks, engagement loops, telemetry, or monetization will be rejected by design.
   - type: textarea

@@ -7,7 +7,7 @@
 #   ./install.sh                  # Installs to ~/.local/bin and ~/.local/share/ferryman
 #   ./install.sh --prefix /custom # Installs to /custom/bin and /custom/share/ferryman
 #   ./install.sh --uninstall      # Removes ferryman from install prefix
-#   curl -fsSL https://raw.githubusercontent.com/the-ferryman-project/ferryman/main/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/rubysquare/the-ferryman-project/main/install.sh | sh
 # ==============================================================================
 
 set -e
@@ -16,8 +16,8 @@ set -e
 DEFAULT_PREFIX="${HOME}/.local"
 PREFIX="${PREFIX:-$DEFAULT_PREFIX}"
 UNINSTALL=0
-REPO_URL="https://github.com/the-ferryman-project/ferryman.git"
-RAW_BASE_URL="https://raw.githubusercontent.com/the-ferryman-project/ferryman/main"
+REPO_URL="https://github.com/rubysquare/the-ferryman-project.git"
+RAW_BASE_URL="https://raw.githubusercontent.com/rubysquare/the-ferryman-project/main"
 
 # Parse command line flags
 while [ $# -gt 0 ]; do
@@ -163,7 +163,7 @@ fi
 if [ -z "$SOURCE_PKG_DIR" ] || [ ! -d "$SOURCE_PKG_DIR" ]; then
     echo "[Ferryman Installer] Error: Could not locate or download ferryman package." >&2
     echo "Please check your network connection or clone the repository directly:" >&2
-    echo "  git clone https://github.com/the-ferryman-project/ferryman.git" >&2
+    echo "  git clone https://github.com/rubysquare/the-ferryman-project.git" >&2
     echo "  cd the-ferryman-project && ./install.sh" >&2
     exit 1
 fi

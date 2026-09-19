@@ -46,10 +46,10 @@ dependencies = []
 ferryman = "ferryman.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/the-ferryman-project/ferryman"
-Documentation = "https://github.com/the-ferryman-project/ferryman#readme"
-"Bug Tracker" = "https://github.com/the-ferryman-project/ferryman/issues"
-"Source Code" = "https://github.com/the-ferryman-project/ferryman"
+Homepage = "https://github.com/rubysquare/the-ferryman-project"
+Documentation = "https://github.com/rubysquare/the-ferryman-project#readme"
+"Bug Tracker" = "https://github.com/rubysquare/the-ferryman-project/issues"
+"Source Code" = "https://github.com/rubysquare/the-ferryman-project"
 
 [tool.setuptools.packages.find]
 where = ["."]

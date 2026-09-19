@@ -1,7 +1,7 @@
 # The Ferryman Project
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/the-ferryman-project/ferryman/main/docs/assets/ferryman_banner.png" alt="The Ferryman Project" width="600" onerror="this.style.display='none'"/>
+  <img src="https://raw.githubusercontent.com/rubysquare/the-ferryman-project/main/docs/assets/ferryman_banner.png" alt="The Ferryman Project" width="600" onerror="this.style.display='none'"/>
 </p>
 
 <p align="center">
@@ -159,7 +159,7 @@ Zero friction, no virtual environments, no `pip` or PEP 668 issues. Installs cle
 
 ```bash
 # Direct install via curl:
-curl -fsSL https://raw.githubusercontent.com/the-ferryman-project/ferryman/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/rubysquare/the-ferryman-project/main/install.sh | sh
 
 # Or from a cloned repository:
 ./install.sh
@@ -174,7 +174,7 @@ To uninstall at any time:
 
 ```bash
 # Using pipx (recommended for isolated CLI tools):
-pipx install git+https://github.com/the-ferryman-project/ferryman.git
+pipx install git+https://github.com/rubysquare/the-ferryman-project.git
 
 # Or standard pip:
 pip install .
@@ -184,7 +184,7 @@ pip install .
 
 ```bash
 # From tap (recommended once published):
-brew tap the-ferryman-project/ferryman
+brew tap rubysquare/the-ferryman-project
 brew install ferryman
 
 # Or directly from the formula template (after release archive is created):
@@ -194,7 +194,7 @@ brew install --formula Formula/ferryman.rb
 ### Option 4: Direct Clone & Run
 
 ```bash
-git clone https://github.com/the-ferryman-project/ferryman.git
+git clone https://github.com/rubysquare/the-ferryman-project.git
 cd the-ferryman-project
 python3 ferryman.py
 ```
